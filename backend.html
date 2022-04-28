@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            margin-bottom: 100px;
+            display: flex;
+            justify-content: space-around;
+            background-color: teal;
+        }
+        #navbar>div>a{
+            text-decoration: none;
+            color: white;
+            font-size: 50px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="frontend.html">Frontend</a></div>
+        <div><a href="backend.html">Backend</a></div>
+    </div>
+    <form id="investorForm">
+        <input id="imgURL" type="text" placeholder="Entar Image URL">
+        <input id="name" type="text" placeholder="Enter investor name">
+        <input id="role" type="text" placeholder="Enter investor role">
+        <input id="companyLogo" type="text" placeholder="Enter company logo URL">
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script>
+    document
+    .querySelector("#investorForm")
+    addEventListener("submit", investorFun);
+
+
+    var investorArr=JSON.parse(localStorage.getItem("investorsData")) || []
+
+    // if(JSON.parse(localStorage.getItem("investorsData")==null)){
+    //     investorArr=[]
+    // }else{
+    //     investorArr=JSON.parse(localStorage.getItem("investorsData"))
+    // }
+
+    
+
+    function investorFun(){
+        event.preventDefault();
+
+
+        var investorObj={
+            investorImg:investorForm.imgURL.value,
+            investorName:investorForm.name.value,
+            investorRole:investorForm.role.value,
+            investorCompanyLogo:investorForm.companyLogo.value,
+        }
+        investorArr.push(investorObj);
+        console.log(investorObj);
+        localStorage.setItem("investorsData",JSON.stringify(investorArr))
+    }
+</script>
