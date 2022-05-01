@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            background-color: wheat;
+        } */
+        #mane{
+          
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+            display: block;
+            border-radius: 15px;
+            width: 35%;
+            padding-left:50px ;
+            padding: 30px;
+        }#sum{
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            width: 200px;
+            display: block;
+            margin: auto;
+            cursor: pointer;
+        }
+        h2{
+            text-align: center;
+            font-size: 30px;
+            width: 30%;
+            margin: auto;
+        }
+        h4{
+            text-align: center;
+           color: gray;
+            width: 30%;
+            margin: auto;
+        }
+        #form >input{
+            display: grid;
+            padding: 10px;
+            width: 100%;
+           
+            border-radius: 5px;
+            /* margin: auto;
+            display: block; */
+        }
+        #img{
+            margin: auto;
+            text-align: center;
+
+        }
+       
+       p{
+           text-align: center;
+       }
+
+    </style>
+  
+</head>
+<body>
+    <div  id="img"><img src="https://sso.masaischool.com/brand_dark.svg" alt=""></div>
+    <div id="mane">
+        <h2>Sihg Up</h2>
+        <form id="form">
+            
+            <h3>Full name</h3>
+            <input id="name" type="text" placeholder="Enter your Full name">
+            <h3>Email</h3>
+            <input id="email" type="email" placeholder="Enter email">
+            <h3>Mobile number</h3>
+            <input id="mobile" type="number" placeholder="Enter mobile number">
+            
+            
+            <h3>Password</h3>
+            <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+            <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+            <p>By signing up, I accept the Masai School <a href="">Terms of service</a>
+            and acknowledge the <a href="">Privacy Policy</a> </p>
+            <br>
+            <input type="submit" value="SIGN UP" id="sum">
+            <p>Already have an account?<a href="sign-in.html">Sign In</a></p>
+        </form>
+    </div>
+    <H4>© 2022 by Masai School
+        Privacy Policy & Terms and Conditions</H4>
+   
+</body>
+</html>
+<script>
+    var form=document.querySelector("#form");
+    form.addEventListener("submit", singpase);
+  
+
+    function singpase (){
+       event.preventDefault();
+
+       var singinObj={
+           name:form.name.value,
+           email:form.email.value,
+           mobile:form.mobile.value,
+           password:form.pass.value,
+       }
+       
+       localStorage.setItem("singdata", JSON.stringify(singinObj))
+    }
+</script>

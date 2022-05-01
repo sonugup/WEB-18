@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #mane{
+          
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          margin: auto;
+          display: block;
+          border-radius: 15px;
+          width: 35%;
+          padding-left:50px ;
+          padding: 30px;
+      }#sum{
+          text-align: center;
+          padding: 15px;
+          margin-top: 40px;
+          width: 200px;
+          display: block;
+          margin: auto;
+          cursor: pointer;
+      }
+      h2{
+          text-align: center;
+          font-size: 30px;
+          width: 30%;
+          margin: auto;
+      }
+      h4{
+          text-align: center;
+          color: gray;
+          width: 30%;
+          margin: auto;
+      }
+      p{
+           text-align: center;
+       }
+      #form >input{
+          display: grid;
+          padding: 10px;
+          width: 100%;
+         
+          border-radius: 5px;
+          /* margin: auto;
+          display: block; */
+      }
+      button{
+        
+          width: 100%;
+          height: 60px;
+         
+          margin: 30px;
+      }
+      button>div{
+       text-align: center;
+       padding-bottom: 40px;
+      }
+      button>div>img{
+          width: 50px;
+       
+       
+      }
+      #img{
+            margin: auto;
+            text-align: center;
+
+        }
+         
+    </style>
+</head>
+<body>
+    <div  id="img"><img src="https://sso.masaischool.com/brand_dark.svg" alt=""></div>
+    <div id="mane">
+        <h2>Sing-in</h2>
+        <form id="form">
+            <h3>Email</h3>
+            <input id="email" type="email">
+            <h3>Mobile number</h3>
+            <input id="mobile" type="number">
+            <h3>Password</h3>
+            <input id="pass" type="password">
+            <br>
+            <input type="submit" value="SIGN IN" id="sum">
+            <button>
+                <div><img  src="https://tse1.mm.bing.net/th?id=OIP.bQFWLjAk0JQta4ZayBBRwAHaHa&pid=Api&P=0&w=170&h=170" alt="">CONTINUE WITH GOOGLE</div>
+                
+            </button>
+            <p>Don't have an account?<a href="sign-up.html">Sign Up</a>
+            </p>
+        </form>
+        
+    </div>
+    <H4>© 2022 by Masai School
+        Privacy Policy & Terms and Conditions</H4>
+    
+</body>
+</html>
+<script>
+    var form=document.querySelector("#form")
+     form.addEventListener("submit", singpase);
+
+     var singdata=JSON.parse(localStorage.getItem("singdata"))
+    
+     function singpase (){
+  
+        event.preventDefault();
+   
+  
+        var singinArr={
+      
+       email:form.email.value,
+       mobile:form.mobile.value,
+       password:form.pass.value,
+     }
+     if(singdata==null){
+       alert("please create an account")
+      }else if(singdata.email==singinArr.email && singdata.mobile==singinArr.mobile
+     && singdata.pass==singinArr.pass){
+        alert("login successful");
+        localStorage.setItem("singdata",JSON.stringify(singdata))
+     }else{
+        alert("User does not exist")
+     }
+}
+
+
+</script>
